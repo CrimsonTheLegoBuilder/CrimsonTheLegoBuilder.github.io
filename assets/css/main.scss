@@ -52,3 +52,11 @@ $jekyll-config-map : {{ config_map }};
 // Custom Layer
 // --------------------------------------------------
 @import "_custom/custom";
+
+
+
+@font-face {
+  font-family: "JetBrainMono";
+  src: url('JetBrainMono/JetBrainMono-Medium.woff2') format('woff2');
+  src: url('JetBrainMono/JetBrainMono-Medium-Regular.woff2') format('woff2'); 
+}
