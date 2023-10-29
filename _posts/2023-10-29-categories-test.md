@@ -1,6 +1,6 @@
 ---
 title: Categories Test
-date: 2023-10-29 23:00:00
+# date: 2023-10-29 23:00:00
 categories:
 - PS
 - Geometry
