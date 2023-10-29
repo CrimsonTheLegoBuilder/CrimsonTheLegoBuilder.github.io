@@ -57,8 +57,8 @@ $jekyll-config-map : {{ config_map }};
 
 @font-face {
   font-family: "JetBrainsMono";
-  local('JetBrainsMono-Medium')
-  // src: url('fonts/JetBrainsMono-Medium.woff2') format('woff2');
+  
+  src: local('JetBrainsMono-Medium'), url('fonts/JetBrainsMono-Medium.woff2') format('woff2');
 }
 
 
