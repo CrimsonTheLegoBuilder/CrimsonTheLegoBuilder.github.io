@@ -136,8 +136,7 @@ pre {
     color: $highlight-red;
   }
 
-  .m, .mf, .mh, .mi, .il, .mo, .mx, .mb,
-  .cp,
+  .m, .mf, .mh, .il, .mo, .mx, .mb,
   .nb, .bp,
   .l, .ld,
   .params,
@@ -155,17 +154,24 @@ pre {
   .ruby .symbol,
   .xml .cdata,
   .special,
-  .m, .mf, .mh, .mi, .il, .mo, .mx, .mb,
+  .m, .mf, .mh, .il, .mo, .mx, .mb,
   .formula {
     color: $highlight-coin;
   }
 
-  .nc, .nf,
   .css .hexcolor {
     color: $highlight-aqua;
   }
 
-  .nf,
+  .mi {
+    color : $highlight-blue;
+  }
+
+  .o {
+    color : $highlight-operator;
+  }
+
+  .nf, .nc,
   .python .decorator,
   .python .title,
   .ruby .function .title,
