@@ -163,14 +163,6 @@ pre {
     color: $highlight-sky;
   }
 
-  .mi {
-    color : $highlight-blue;
-  }
-
-  .o {
-    color : $highlight-operator;
-  }
-
   .nf, .nc,
   .python .decorator,
   .python .title,
@@ -185,6 +177,14 @@ pre {
   .k, .kd, .kn, .kp, .kr, .kt,
   .javascript .function {
     color: $highlight-red;
+  }
+
+  .mi {
+    color : $highlight-blue;
+  }
+
+  .o {
+    color : $highlight-operator;
   }
 
 }
