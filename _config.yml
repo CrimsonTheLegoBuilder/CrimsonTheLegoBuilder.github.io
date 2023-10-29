@@ -152,8 +152,8 @@ menu_icons:
 
 # Schemes
 # scheme: Muse
-scheme: Mist
-#scheme: Pisces
+# scheme: Mist
+scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -198,7 +198,7 @@ font:
 
   # Font settings for <code> and code blocks.
   codes:
-    external: true
+    # external:
     family: JetBrainMono
     size:
 
