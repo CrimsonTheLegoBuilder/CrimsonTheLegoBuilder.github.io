@@ -14,6 +14,9 @@ $highlight_theme : jekyll-config("highlight_theme");
   $highlight-aqua         : #3e999f !global;
   $highlight-blue         : #4271ae !global;
   $highlight-purple       : #8959a8 !global;
+  $highlight-coin         : #d2c52f !global;
+  $highlight-grass        : #83d05a !global;
+  $highlight-sky          : #72d8df !global;
   $highlight-gutter       : (
     color: #869194,
     bg-color: #eff2f3
@@ -33,6 +36,9 @@ $highlight_theme : jekyll-config("highlight_theme");
   $highlight-aqua         : #8abeb7 !global;
   $highlight-blue         : #81a2be !global;
   $highlight-purple       : #b294bb !global;
+  $highlight-coin         : #d2c52f !global;
+  $highlight-grass        : #83d05a !global;
+  $highlight-sky          : #72d8df !global;
   $highlight-gutter       : (
     color: scale-color($highlight-background, $lightness: 50%),
     bg-color: scale-color($highlight-background, $lightness: -100%)
@@ -52,6 +58,9 @@ $highlight_theme : jekyll-config("highlight_theme");
   $highlight-aqua         : #66cccc !global;
   $highlight-blue         : #6699cc !global;
   $highlight-purple       : #cc99cc !global;
+  $highlight-coin         : #d2c52f !global;
+  $highlight-grass        : #83d05a !global;
+  $highlight-sky          : #72d8df !global;
   $highlight-gutter       : (
     color: $highlight-comment,
     bg-color: scale-color($highlight-background, $lightness: -40%)
@@ -71,6 +80,9 @@ $highlight_theme : jekyll-config("highlight_theme");
   $highlight-aqua         : #99ffff !global;
   $highlight-blue         : #bbdaff !global;
   $highlight-purple       : #ebbbff !global;
+  $highlight-coin         : #d2c52f !global;
+  $highlight-grass        : #83d05a !global;
+  $highlight-sky          : #72d8df !global;
   $highlight-gutter       : (
     color: $highlight-comment,
     bg-color: scale-color($highlight-background, $lightness: -60%)
@@ -90,6 +102,9 @@ $highlight_theme : jekyll-config("highlight_theme");
   $highlight-aqua         : #70c0b1 !global;
   $highlight-blue         : #7aa6da !global;
   $highlight-purple       : #c397d8 !global;
+  $highlight-coin         : #d2c52f !global;
+  $highlight-grass        : #83d05a !global;
+  $highlight-sky          : #72d8df !global;
   $highlight-gutter       : (
     color: scale-color($highlight-background, $lightness: 40%),
     bg-color: scale-color($highlight-background, $lightness: 16%)

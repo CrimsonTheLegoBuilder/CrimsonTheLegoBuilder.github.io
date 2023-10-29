@@ -143,7 +143,7 @@ pre {
   .params,
   .kc,
   .gp {
-    color: $highlight-orange;
+    color: $highlight-foreground;
   }
 
   .ruby .class .title,
@@ -157,7 +157,7 @@ pre {
   .special,
   .m, .mf, .mh, .mi, .il, .mo, .mx, .mb,
   .formula {
-    color: $highlight-green;
+    color: $highlight-coin;
   }
 
   .nc, .nf,
@@ -178,7 +178,7 @@ pre {
 
   .k, .kd, .kn, .kp, .kr, .kt,
   .javascript .function {
-    color: $highlight-purple;
+    color: $highlight-red;
   }
 
 }
