@@ -46,11 +46,11 @@ highlight:
 #### Markdown Processors
 ## 'redcarpet' is unsupported on GitHub Pages now.
 markdown: kramdown
-# kramdown:
-#     input: GFM
-#     syntax_highlighter: rouge
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
   
-highlighter: rouge
+# highlighter: rouge
 
 # Default Attributes
 ## Docs: https://jekyllrb.com/docs/configuration/#front-matter-defaults
@@ -230,8 +230,8 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  Weibo: weibo
+  Instagram: instagram
+  Youtube: youtube
 
 
 # Sidebar Avatar
