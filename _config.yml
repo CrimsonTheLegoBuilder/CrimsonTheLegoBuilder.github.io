@@ -195,15 +195,15 @@ font:
   # Fallback to `global` font settings.
   # The `size` option use `px` as unit
   logo:
-    external: true
-    family:
+    # external: true
+    family: JetBrainsMono
     size:
 
   # Font settings for <code> and code blocks.
   codes:
     # external:
     family: JetBrainsMono
-    size: 11
+    size:
 
 
 
