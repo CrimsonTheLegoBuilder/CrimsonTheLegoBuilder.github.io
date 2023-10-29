@@ -61,7 +61,7 @@ counter:
   archive_posts:
     zero: 포스트 없음
     one: 1개의 포스트
-    other: "총 %d개의 포스트"
+    other: "총 %d개의 게시글"
 
 state:
   posts: 포스트
@@ -70,14 +70,14 @@ state:
   categories: 카테고리
 
 cheers:
-  um: 음..
-  ok: OK
-  nice: 잘했어요
-  good: 좋아요
-  great: 훌륭해요
-  excellent: 완벽해요
+  um: 합계
+  ok: 합계
+  nice: 합계
+  good: 합계
+  great: 합계
+  excellent: 합계
 
-keep_on: 포스트를 마저 작성하세요
+keep_on: "" 
 
 symbol:
   comma: ', '

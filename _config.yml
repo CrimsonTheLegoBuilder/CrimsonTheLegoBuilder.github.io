@@ -4,10 +4,10 @@
 # ---------------------------------------------------------------
 
 # Site
-title: Crimson
+title: Crimson'c Craft
 subtitle:
-description:
-author: John Doe
+description: PS && Lego MOC
+author: Crimson
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
 language: ko
 date_format: '%Y-%m-%d'
@@ -82,7 +82,7 @@ plugins:
 favicon: /assets/favicon.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Jekyll, NexT"
+keywords: "Jekyll, NexT, Program_Solving, Lego"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -93,7 +93,7 @@ rss:
 #since: 2015
 
 # icon between year and author @Footer
-authoricon: heart
+authoricon: star
 
 # Footer `powered-by` and `theme-info` copyright
 copyright: true
@@ -122,9 +122,9 @@ index_with_subtitle: false
 menu:
   home: /
   categories: /categories/
-  #about: /about/
   archives: /archives/
   tags: /tags/
+  about: /about/
   #sitemap: /sitemap.xml
   #commonweal: /404.html
 
