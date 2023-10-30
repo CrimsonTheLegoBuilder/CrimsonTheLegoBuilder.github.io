@@ -5,7 +5,7 @@
   width: 14px;
   height: 14px;
   padding: 5px;
-  background: $black-deep;
+  background: white;
   line-height: 0;
   z-index: $zindex-5;
   cursor: pointer;
@@ -27,7 +27,7 @@
   vertical-align: top;
   height: 2px;
   width: 100%;
-  background: whitesmoke;
+  background: white;
   margin-top: 3px;
 
   &:first-child { margin-top: 0; }
