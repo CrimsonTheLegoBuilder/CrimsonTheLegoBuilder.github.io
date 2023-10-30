@@ -46,11 +46,13 @@ highlight:
 #### Markdown Processors
 ## 'redcarpet' is unsupported on GitHub Pages now.
 markdown: kramdown
-kramdown:
-    input: GFM
-    syntax_highlighter: rouge
-  
-# highlighter: rouge
+# kramdown:
+#     input: GFM
+#     syntax_highlighter: rouge
+highlighter: rouge
+lsi: false
+excerpt_seperator: false
+incremental: false
 
 # Default Attributes
 ## Docs: https://jekyllrb.com/docs/configuration/#front-matter-defaults
