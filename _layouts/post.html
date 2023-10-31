@@ -2,16 +2,16 @@
 layout: layout
 ---
 
-{% if page.use_math %}
+{% assign __ = site.data.languages[site.language] %}
+{% include post.html %}
+<!-- {% if page.use_math %}
   {% include mathjax_support.html %}
-{% endif %}
+{% endif %} -->
 <!-- {% highlight r %}
 <script type="text/x-mathjax-config"> MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true } }); </script> <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
 {% endhighlight %} -->
-{% assign __ = site.data.languages[site.language] %}
-{% include post.html %}
 
-{% if page.usemathjax %}
+<!-- {% if page.usemathjax %}
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     TeX: {
@@ -33,5 +33,5 @@ MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
     });
 </script>
 <script type="text/javascript" async src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-{% endif %}
+{% endif %} -->
 
