@@ -236,9 +236,9 @@ social_icons:
   Youtube: youtube
 
 
-Sidebar Avatar
-in directory: /assets/images/profile.jpg
-#avatar:
+# Sidebar Avatar
+avatar:
+  in directory: /assets/images/profile.jpg
 
 
 # Table Of Contents in the Sidebar
