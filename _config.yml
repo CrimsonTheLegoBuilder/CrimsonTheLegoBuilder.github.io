@@ -95,7 +95,7 @@ rss:
 #since: 2015
 
 # icon between year and author @Footer
-authoricon: star
+authoricon: hexagon
 
 # Footer `powered-by` and `theme-info` copyright
 copyright: true
@@ -236,8 +236,8 @@ social_icons:
   Youtube: youtube
 
 
-# Sidebar Avatar
-# in directory: /assets/images/avatar.gif
+Sidebar Avatar
+in directory: /assets/images/profile.jpg
 #avatar:
 
 
