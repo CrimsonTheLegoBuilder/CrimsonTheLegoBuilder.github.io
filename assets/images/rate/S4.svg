@@ -1,1 +1,8 @@
-<svg id="레이어_1" data-name="레이어 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 512"><defs><style>.cls-1{fill:#435f7a;}.cls-2{fill:#fff;}</style></defs><title>7</title><polygon class="cls-1" points="0 0 0 419.74 199.77 512 400 419.74 400 0 0 0"/><path class="cls-2" d="M269.12,273.63v49.68H212.6V273.63H92.72V222.87L196.4,68.43h72.36V224.67H304v49ZM213,130.35h-1.08L151.4,224.67H213Z" transform="translate(0)"/><polygon class="cls-2" points="0 339.02 0 378.94 199.77 471.2 400 378.94 400 339.02 199.77 431.28 0 339.02"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="12px" height="px" viewBox="0 0 12 15" version="1.1">
+<g id="surface1">
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(26.27451%,37.254902%,47.843137%);fill-opacity:1;" d="M 0 0 L 0 12.296875 L 5.992188 15 L 12 12.296875 L 12 0 Z M 0 0 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 8.074219 8.015625 L 8.074219 9.472656 L 6.378906 9.472656 L 6.378906 8.015625 L 2.78125 8.015625 L 2.78125 6.53125 L 5.890625 2.003906 L 8.0625 2.003906 L 8.0625 6.582031 L 9.121094 6.582031 L 9.121094 8.019531 Z M 6.390625 3.820312 L 6.359375 3.820312 L 4.542969 6.582031 L 6.390625 6.582031 Z M 6.390625 3.820312 "/>
+<path style=" stroke:none;fill-rule:nonzero;fill:rgb(100%,100%,100%);fill-opacity:1;" d="M 0 9.933594 L 0 11.101562 L 5.992188 13.804688 L 12 11.101562 L 12 9.933594 L 5.992188 12.636719 Z M 0 9.933594 "/>
+</g>
+</svg>
