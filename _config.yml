@@ -208,7 +208,8 @@ font:
     size: 13
 
 
-
+pygments_options:
+  tabsize: 4
 
 # ---------------------------------------------------------------
 # Sidebar Settings
