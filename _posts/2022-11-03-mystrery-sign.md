@@ -19,7 +19,7 @@ usemathjax: true
 ---
 
 
-{% include rate.html image_path="/assets/images/rate/P3.svg" url="https://www.acmicpc.net/problem/20670" discription="20670 MS"%}
+{% include rate.html image_path="/assets/images/rate/P3.svg" url="https://www.acmicpc.net/problem/20670" discription="20670 미스테리 싸인"%}
 
 두 개의 볼록다각형이 주어지고, 싸인을 구성하는 여러 개의 점이 주어집니다. 점은 바깥쪽 볼록 다각형 안에 존재해야하며 동시에 안쪽 볼록 다각형 밖에 존재해야 합니다.
 
@@ -30,6 +30,20 @@ usemathjax: true
 이 문제에서 주어지는 두 다각형을 이루는 점 \\(N\\) 과 \\(M\\) 의 크기는 각각 10,000개까지 가능하며 점의 수는 300,000개입니다. 저걸 일일이 \\(O(N)\\) 과 \\(O(M)\\) 에 구하고 있으면 시간 초과입니다. 따라서 \\(O(log N)\\) 에 모든 점의 내부 점 판정을 할 수 있어야 시간 안에 AC를 받을 수 있습니다.
 
 먼저 점을 구성하는 구조체 `Pos`를 만들어줍니다. `std::vector`에서 제공하는 `Pair` 구조체를 써도 됩니다. 정렬 순서와 ID를 부여하는 등의 기법을 쓰는데는 직접 구현한 구조체가 쓰기 편해서 만들어 쓰는 편을 선호합니다.
+
+{% highlight cpp %}
+#include <iostream>
+#include <algorithm>
+typedef long long ll;
+const int LEN = 10'000;
+int n, m, k, out;  //바깥쪽 다각형의 점 수 n, 안쪽 다각형의 점 수 m, 싸인의 점 수 k
+
+struct Pos {
+    ll x, y;
+    bool operator < (const Pos& p) const { return (x == p.x ? y < p.y : x < p.x); }
+    //두 점의 정렬 순서. 이 문제에서는 정렬을 하지 않아 기준이 쓰이지 않았다.
+}N[LEN], M[LEN], K;  //바깥쪽 다각형 N, 안쪽 다각형 M, 싸인의 좌표 K
+{% endhighlight %}
 
 ```cpp
 #include <iostream>
@@ -63,7 +77,7 @@ bool I(const Pos& p, Pos H[], int h) {  //h = 볼록 다각형의 점의 개수
     //0-1 번 째 변 오른쪽에 있거나 0-(h-1) 번 째 변 왼쪽에 있으면 해당 점은 외부에 있다.
 ```
 
-이제 이분 탐색으로 점이 0번 점으로부터 시작해 어떤 두 점 사이에 있는지를 판단합니다. 먼저 \\(S = 0, e = h - 1\\) 로 설정해줍니다. \\(m\\)번째 점을 잡아준 후 `cross(H[0], H[m], p)`로 CCW (p가 왼쪽에 있는지, m이 오른쪽에 있는지)를 확인힙니다. p가 왼쪽에 있다면 (CCW) s부터 m까지의 점들은 더 이상 고려할 필요가 없어집니다. 반쪽을 날려줍시다. 판단 결과가 반대라면 반대쪽도 똑같이 날려줍니다. 이 과정을 s와 e의 차이가 1 만큼일 때까지 반복해줍니다.
+이제 이분 탐색으로 점이 0번 점으로부터 시작해 어떤 두 점 사이에 있는지를 판단합니다. 먼저 \\(s = 0 , e = h - 1\\) 로 설정해줍니다. \\(m\\)번째 점을 잡아준 후 `cross(H[0], H[m], p)`로 `CCW` (p가 왼쪽에 있는지, m이 오른쪽에 있는지)를 확인힙니다. p가 왼쪽에 있다면 `(CCW)` s부터 m까지의 점들은 더 이상 고려할 필요가 없어집니다. 반쪽을 날려줍시다. 판단 결과가 반대라면 반대쪽도 똑같이 날려줍니다. 이 과정을 s와 e의 차이가 1 만큼일 때까지 반복해줍니다.
 
 ![CCWin](/assets/images/2023-11-03-in/CCW_in.jpg)
 
