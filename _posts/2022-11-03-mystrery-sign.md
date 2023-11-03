@@ -153,6 +153,7 @@ int main() {
 ```
 
 메모리를 희생하고 싸인을 이루는 점을 미리 전부 받아 시간을 단축하는 방법도 있습니다.
+
 ```cpp
 #include <iostream>
 #include <algorithm>
