@@ -190,5 +190,5 @@ int main() {
     if (!out) std::cout << "YES" << "\n";
     else std::cout << out << "\n";
     return 0;
-    }
+}
 ```
