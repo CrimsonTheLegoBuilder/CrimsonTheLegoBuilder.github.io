@@ -45,43 +45,29 @@ struct Pos {
 }N[LEN], M[LEN], K;  //바깥쪽 다각형 N, 안쪽 다각형 M, 싸인의 좌표 K
 {% endhighlight %}
 
-```cpp
-#include <iostream>
-#include <algorithm>
-typedef long long ll;
-const int LEN = 10'000;
-int n, m, k, out;  //바깥쪽 다각형의 점 수 n, 안쪽 다각형의 점 수 m, 싸인의 점 수 k
-
-struct Pos {
-    ll x, y;
-    bool operator < (const Pos& p) const { return (x == p.x ? y < p.y : x < p.x); }
-    //두 점의 정렬 순서. 이 문제에서는 정렬을 하지 않아 기준이 쓰이지 않았다.
-}N[LEN], M[LEN], K;  //바깥쪽 다각형 N, 안쪽 다각형 M, 싸인의 좌표 K
-```
-
 세 점으로 `CCW`를 판단하는 외적을 구현해줍니다.
 
-```cpp
+{% highlight cpp %}
 ll cross(const Pos& d1, const Pos& d2, const Pos& d3) {
     return (d2.x - d1.x) * (d3.y - d2.y) - (d2.y - d1.y) * (d3.x - d2.x);
 }
-```
+{% endhighlight %}
 
 이제 내부 점 판정을 하러 가봅시다.
 볼록 다각형의 \\(0\\)번째 점을 고정으로 잡고, \\(1\\)번째와 \\(h - 1\\)번째 양쪽 점에 대해서 점이 변 밖에 나가있는지부터 판단합니다.
 
-```cpp
+{% highlight cpp %}
 bool I(const Pos& p, Pos H[], int h) {  //h = 볼록 다각형의 점의 개수
     if (h < 3 || cross(H[0], H[1], p) <= 0 || cross(H[0], H[h - 1], p) >= 0) return 0;
     //길이가 3 이하이면 볼록 다각형이 아니어서 내부 판정 자체가 불가능하다.
     //0-1 번 째 변 오른쪽에 있거나 0-(h-1) 번 째 변 왼쪽에 있으면 해당 점은 외부에 있다.
-```
+{% endhighlight %}
 
 이제 이분 탐색으로 점이 0번 점으로부터 시작해 어떤 두 점 사이에 있는지를 판단합니다. 먼저 \\(s = 0 , e = h - 1\\) 로 설정해줍니다. \\(m\\)번째 점을 잡아준 후 `cross(H[0], H[m], p)`로 `CCW` (p가 왼쪽에 있는지, m이 오른쪽에 있는지)를 확인힙니다. p가 왼쪽에 있다면 `(CCW)` s부터 m까지의 점들은 더 이상 고려할 필요가 없어집니다. 반쪽을 날려줍시다. 판단 결과가 반대라면 반대쪽도 똑같이 날려줍니다. 이 과정을 s와 e의 차이가 1 만큼일 때까지 반복해줍니다.
 
 ![CCWin](/assets/images/2023-11-03-in/CCW_in.jpg)
 
-```cpp
+{% highlight cpp %}
     int s = 0, e = h - 1, m;
     while (s + 1 < e) {
         m = s + e >> 1;
@@ -91,18 +77,18 @@ bool I(const Pos& p, Pos H[], int h) {  //h = 볼록 다각형의 점의 개수
         else e = m;
         //반대쪽도 대칭으로 시행
 	}
-```
+{% endhighlight %}
 
 점 p가 어떤 변의 범위 안에 위치하는지 알아냈습니다. 이제 남은 일은 점 s, e, p가 CCW를 형성하는지 알아내는 것입니다.
 
-```cpp
+{% highlight cpp %}
     return cross(H[s], H[e], p) > 0;
 }
-```
+{% endhighlight %}
 
 이제 볼록 다각형 두 개를 입력받고 내부 점 판정을 돌려줍니다.
 
-```cpp
+{% highlight cpp %}
 int main() {
     std::cin.tie(0)->sync_with_stdio(0);
     std::cout.tie(0);
@@ -118,11 +104,11 @@ int main() {
     else std::cout << out << "\n";
     return 0;
 }
-```
+{% endhighlight %}
 
 BOJ 20670 미스테리 싸인 전체 코드
 
-```cpp
+{% highlight cpp %}
 #include <iostream>
 #include <algorithm>
 typedef long long ll;
@@ -164,11 +150,11 @@ int main() {
     else std::cout << out << "\n";
     return 0;
 }
-```
+{% endhighlight %}
 
 메모리를 희생하고 싸인을 이루는 점을 미리 전부 받아 시간을 단축하는 방법도 있습니다.
 
-```cpp
+{% highlight cpp %}
 #include <iostream>
 #include <algorithm>
 typedef long long ll;
@@ -205,4 +191,4 @@ int main() {
     else std::cout << out << "\n";
     return 0;
 }
-```
+`{% endhighlight %}
