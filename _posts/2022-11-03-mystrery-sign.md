@@ -6,13 +6,13 @@ categories:
 - PS
 - Geometry
 - Convex hull
-- Point in convex poligon
+- Point in convex polygon
 - Binary search
 tags:
 - PS
 - Geometry
 - Convex hull
-- Point in convex poligon
+- Point in convex polygon
 - Binary search
 description: 이분 탐색으로 볼록 다각형 내부 점 판정을 O(log N)에 시행한다.
 usemathjax: true
