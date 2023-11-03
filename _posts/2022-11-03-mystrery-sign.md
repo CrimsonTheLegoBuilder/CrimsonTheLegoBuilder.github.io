@@ -39,8 +39,8 @@ const int LEN = 10'000;
 int n, m, k, out;  //바깥쪽 다각형의 점 수 n, 안쪽 다각형의 점 수 m, 싸인의 점 수 k
 
 struct Pos {
-	ll x, y;
-	bool operator < (const Pos& p) const { return (x == p.x ? y < p.y : x < p.x); }
+    ll x, y;
+    bool operator < (const Pos& p) const { return (x == p.x ? y < p.y : x < p.x); }
     //두 점의 정렬 순서. 이 문제에서는 정렬을 하지 않아 기준이 쓰이지 않았다.
 }N[LEN], M[LEN], K;  //바깥쪽 다각형 N, 안쪽 다각형 M, 싸인의 좌표 K
 ```
@@ -49,7 +49,7 @@ struct Pos {
 
 ```cpp
 ll cross(const Pos& d1, const Pos& d2, const Pos& d3) {
-	return (d2.x - d1.x) * (d3.y - d2.y) - (d2.y - d1.y) * (d3.x - d2.x);
+    return (d2.x - d1.x) * (d3.y - d2.y) - (d2.y - d1.y) * (d3.x - d2.x);
 }
 ```
 
@@ -58,7 +58,7 @@ ll cross(const Pos& d1, const Pos& d2, const Pos& d3) {
 
 ```cpp
 bool I(const Pos& p, Pos H[], int h) {  //h = 볼록 다각형의 점의 개수
-	if (h < 3 || cross(H[0], H[1], p) <= 0 || cross(H[0], H[h - 1], p) >= 0) return 0;
+    if (h < 3 || cross(H[0], H[1], p) <= 0 || cross(H[0], H[h - 1], p) >= 0) return 0;
     //길이가 3 이하이면 볼록 다각형이 아니어서 내부 판정 자체가 불가능하다.
     //0-1 번 째 변 오른쪽에 있거나 0-(h-1) 번 째 변 왼쪽에 있으면 해당 점은 외부에 있다.
 ```
@@ -68,13 +68,13 @@ bool I(const Pos& p, Pos H[], int h) {  //h = 볼록 다각형의 점의 개수
 ![CCWin](/assets/images/2023-11-03-in/CCW_in.jpg)
 
 ```cpp
-	int s = 0, e = h - 1, m;
-	while (s + 1 < e) {
-		m = s + e >> 1;
-		if (cross(H[0], H[m], p) > 0) s = m;
+    int s = 0, e = h - 1, m;
+    while (s + 1 < e) {
+        m = s + e >> 1;
+        if (cross(H[0], H[m], p) > 0) s = m;
         //외적 결과가 0보다 크다면 m 번째 점은 점 p보다 오른쪽에 있으므로
         //m 오른쪽인 s~m 사이 점들을 날려버린다.
-		else e = m;
+        else e = m;
         //반대쪽도 대칭으로 시행
 	}
 ```
@@ -82,7 +82,7 @@ bool I(const Pos& p, Pos H[], int h) {  //h = 볼록 다각형의 점의 개수
 점 p가 어떤 변의 범위 안에 위치하는지 알아냈습니다. 이제 남은 일은 점 s, e, p가 CCW를 형성하는지 알아내는 것입니다.
 
 ```cpp
-	return cross(H[s], H[e], p) > 0;
+    return cross(H[s], H[e], p) > 0;
 }
 ```
 
@@ -90,19 +90,19 @@ bool I(const Pos& p, Pos H[], int h) {  //h = 볼록 다각형의 점의 개수
 
 ```cpp
 int main() {
-	std::cin.tie(0)->sync_with_stdio(0);
-	std::cout.tie(0);
-	std::cin >> n >> m >> k;
-	for (int i = 0; i < n; i++) { std::cin >> N[i].x >> N[i].y; }
-	for (int i = 0; i < m; i++) { std::cin >> M[i].x >> M[i].y; }
-	for (int i = 0; i < k; i++) {
-		std::cin >> K.x >> K.y;
-		if (!I(K, N, n) || I(K, M, m)) out++;
+    std::cin.tie(0)->sync_with_stdio(0);
+    std::cout.tie(0);
+    std::cin >> n >> m >> k;
+    for (int i = 0; i < n; i++) { std::cin >> N[i].x >> N[i].y; }
+    for (int i = 0; i < m; i++) { std::cin >> M[i].x >> M[i].y; }
+    for (int i = 0; i < k; i++) {
+        std::cin >> K.x >> K.y;
+        if (!I(K, N, n) || I(K, M, m)) out++;
         //N 밖에 있거나 M 안에 있다면 조건을 벗어난다.
-	}
-	if (!out) std::cout << "YES" << "\n";
-	else std::cout << out << "\n";
-	return 0;
+    }
+    if (!out) std::cout << "YES" << "\n";
+    else std::cout << out << "\n";
+    return 0;
 }
 ```
 
@@ -116,39 +116,39 @@ const int LEN = 10'000;
 int n, m, k, out;
 
 struct Pos {
-	ll x, y;
-	bool operator < (const Pos& p) const { return (x == p.x ? y < p.y : x < p.x); }
+    ll x, y;
+    bool operator < (const Pos& p) const { return (x == p.x ? y < p.y : x < p.x); }
 }N[LEN], M[LEN], K;
 
 ll cross(const Pos& d1, const Pos& d2, const Pos& d3) {
-	return (d2.x - d1.x) * (d3.y - d2.y) - (d2.y - d1.y) * (d3.x - d2.x);
+    return (d2.x - d1.x) * (d3.y - d2.y) - (d2.y - d1.y) * (d3.x - d2.x);
 }
 bool I(const Pos& p, Pos H[], int h) {
-	if (h < 3 || cross(H[0], H[1], p) <= 0 || cross(H[0], H[h - 1], p) >= 0) return 0;
-	int s = 0, e = h - 1, m;
-	while (s + 1 < e) {
-		m = s + e >> 1;
-		if (cross(H[0], H[m], p) > 0) s = m;
-		else e = m;
-	}
-	return cross(H[s], H[e], p) > 0;
+    if (h < 3 || cross(H[0], H[1], p) <= 0 || cross(H[0], H[h - 1], p) >= 0) return 0;
+    int s = 0, e = h - 1, m;
+    while (s + 1 < e) {
+        m = s + e >> 1;
+        if (cross(H[0], H[m], p) > 0) s = m;
+        else e = m;
+    }
+    return cross(H[s], H[e], p) > 0;
 }
 
 
 
 int main() {
-	std::cin.tie(0)->sync_with_stdio(0);
-	std::cout.tie(0);
-	std::cin >> n >> m >> k;
-	for (int i = 0; i < n; i++) { std::cin >> N[i].x >> N[i].y; }
-	for (int i = 0; i < m; i++) { std::cin >> M[i].x >> M[i].y; }
-	for (int i = 0; i < k; i++) {
-		std::cin >> K.x >> K.y;
-		if (!I(K, N, n) || I(K, M, m)) out++;
-	}
-	if (!out) std::cout << "YES" << "\n";
-	else std::cout << out << "\n";
-	return 0;
+    std::cin.tie(0)->sync_with_stdio(0);
+    std::cout.tie(0);
+    std::cin >> n >> m >> k;
+    for (int i = 0; i < n; i++) { std::cin >> N[i].x >> N[i].y; }
+    for (int i = 0; i < m; i++) { std::cin >> M[i].x >> M[i].y; }
+    for (int i = 0; i < k; i++) {
+        std::cin >> K.x >> K.y;
+        if (!I(K, N, n) || I(K, M, m)) out++;
+    }
+    if (!out) std::cout << "YES" << "\n";
+    else std::cout << out << "\n";
+    return 0;
 }
 ```
 
@@ -164,31 +164,31 @@ int n, m, k, out;
 struct Pos { ll x, y; }N[LEN], M[LEN], K[LEN * 30];
 
 ll cross(const Pos& d1, const Pos& d2, const Pos& d3) {
-	return (d2.x - d1.x) * (d3.y - d2.y) - (d2.y - d1.y) * (d3.x - d2.x);
+    return (d2.x - d1.x) * (d3.y - d2.y) - (d2.y - d1.y) * (d3.x - d2.x);   
 }
 bool I(const Pos& p, Pos H[], int h) {
-	if (h < 3 || cross(H[0], H[1], p) <= 0 || cross(H[0], H[h - 1], p) >= 0) return 0;
-	int s = 0, e = h - 1, m;
-	while (s + 1 < e) {
-		m = s + e >> 1;
-		if (cross(H[0], H[m], p) > 0) s = m;
-		else e = m;
-	}
-	return cross(H[s], H[e], p) > 0;
+    if (h < 3 || cross(H[0], H[1], p) <= 0 || cross(H[0], H[h - 1], p) >= 0) return 0;
+    int s = 0, e = h - 1, m;
+    while (s + 1 < e) {
+        m = s + e >> 1;
+        if (cross(H[0], H[m], p) > 0) s = m;
+        else e = m;
+    }
+    return cross(H[s], H[e], p) > 0;
 }
 
 
 
 int main() {
-	std::cin.tie(0)->sync_with_stdio(0);
-	std::cout.tie(0);
-	std::cin >> n >> m >> k;
-	for (int i = 0; i < n; i++) { std::cin >> N[i].x >> N[i].y; }
-	for (int i = 0; i < m; i++) { std::cin >> M[i].x >> M[i].y; }
-	for (int i = 0; i < k; i++) { std::cin >> K[i].x >> K[i].y; }
-	for (int i = 0; i < k; i++) { if (!I(K[i], N, n) || I(K[i], M, m)) out++; }
-	if (!out) std::cout << "YES" << "\n";
-	else std::cout << out << "\n";
-	return 0;
-}
+    std::cin.tie(0)->sync_with_stdio(0);
+    std::cout.tie(0);
+    std::cin >> n >> m >> k;
+    for (int i = 0; i < n; i++) { std::cin >> N[i].x >> N[i].y; }
+    for (int i = 0; i < m; i++) { std::cin >> M[i].x >> M[i].y; }
+    for (int i = 0; i < k; i++) { std::cin >> K[i].x >> K[i].y; }
+    for (int i = 0; i < k; i++) { if (!I(K[i], N, n) || I(K[i], M, m)) out++; }
+    if (!out) std::cout << "YES" << "\n";
+    else std::cout << out << "\n";
+    return 0;
+    }
 ```
