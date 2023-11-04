@@ -205,7 +205,7 @@ font:
   codes:
     # external:
     family: JetBrainsMono
-    size: 13
+    size: 12
 
 
 pygments_options:
