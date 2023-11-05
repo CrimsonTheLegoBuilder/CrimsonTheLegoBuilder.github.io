@@ -18,10 +18,19 @@ description: 이분 탐색으로 볼록 다각형 내부 점 판정을 O(log N)�
 usemathjax: true
 ---
 
+# BOJ 20670 미스테리 싸인
 
 {% include rate.html image_path="/assets/images/rate/P3.svg" url="https://www.acmicpc.net/problem/20670" discription="20670 미스테리 싸인"%}
 
 두 개의 볼록 다각형이 주어지고, 싸인을 구성하는 여러 개의 점이 주어집니다. 점은 바깥쪽 볼록 다각형 안에 존재해야하며 동시에 안쪽 볼록 다각형 밖에 존재해야 합니다.
+
+알고리즘 :
+- Geometry
+- Convex hull
+- Point in convex polygon
+- Binary search
+
+## 기하학
 
 우선 볼록 다각형이 어떻게 표현되는지부터 봅시다. 모든 점은 반시계방향 순서로 주어진다고 합니다. 컴퓨터 입장에서 점들의 좌표는 그저 의미 없는 1과 0의 덩어리일 뿐입니다. 점들이 의미하는 것은 온전히 사람의 입장에서 정의됩니다. 점들의 순서가 꼬이게 되면 점들은 볼록 다각형을 의미하지 못하게 되므로 볼록 다각형을 표현하는데 있어서는 순서가 매우 중요합니다.
 
@@ -52,6 +61,9 @@ ll cross(const Pos& d1, const Pos& d2, const Pos& d3) {
     return (d2.x - d1.x) * (d3.y - d2.y) - (d2.y - d1.y) * (d3.x - d2.x);
 }
 {% endhighlight %}
+
+## 볼록 다각형 내부 점 판정
+## 이분 탐색
 
 이제 내부 점 판정을 하러 가봅시다.
 볼록 다각형의 \\(0\\)번째 점을 고정으로 잡고, \\(1\\)번째와 \\(h - 1\\)번째 양쪽 점에 대해서 점이 변 밖에 나가있는지부터 판단합니다.
