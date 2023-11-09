@@ -12,6 +12,11 @@ description: 세부묘사
 
 주석으로 끊으면 뒤가 안 나오나?
 <!-- more -->
+
+미리 보기
+bundle exec jekyll serve
+
+
 진짜?
 
 # 헤딩
