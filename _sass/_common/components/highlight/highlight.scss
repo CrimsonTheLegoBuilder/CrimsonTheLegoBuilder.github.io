@@ -154,7 +154,7 @@ pre {
   .ruby .symbol,
   .xml .cdata,
   .special,
-  .m, .mf, .mh, .il, .mo, .mx, .mb,
+  .m, .mh, .il, .mo, .mx, .mb,
   .formula {
     color: $highlight-coin;
   }
@@ -179,7 +179,7 @@ pre {
     color: $highlight-red;
   }
 
-  .mi {
+  .mi, .mf {
     color : $highlight-blue;
   }
 
