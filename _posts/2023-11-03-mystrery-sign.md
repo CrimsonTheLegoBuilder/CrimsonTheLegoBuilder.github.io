@@ -4,17 +4,9 @@ title: 백준 20670 미스테리 싸인
 date: 2023-11-03 15:00:00 +0900
 categories:
 - PS
-- Geometry
-- Convex hull
-- Point in convex polygon
-- Binary search
 tags:
 - PS
-- Geometry
-- Convex hull
-- Point in convex polygon
-- Binary search
-description: 이분 탐색으로 볼록 다각형 내부 점 판정을 O(log N)에 시행한다.
+description: BOJ 20670 미스테리 싸인
 usemathjax: true
 ---
 
