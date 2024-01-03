@@ -6,7 +6,7 @@ categories:
 - PS
 tags:
 - PS
-description: 3527 Jungle Outpost
+description: BOJ 3527 Jungle Outpost
 usemathjax: true
 ---
 
