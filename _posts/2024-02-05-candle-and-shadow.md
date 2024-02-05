@@ -10,7 +10,7 @@ description: BOJ 18190 촛불과 그림자
 usemathjax: true
 ---
 
-# BOJ 3527 Jungle Outpost
+//# BOJ 18190 촛불과 그림자
 
 {% include rate.html image_path="/assets/images/rate/R5.svg" url="https://www.acmicpc.net/problem/18190" discription="18190 촛불과 그림자"%}
 
