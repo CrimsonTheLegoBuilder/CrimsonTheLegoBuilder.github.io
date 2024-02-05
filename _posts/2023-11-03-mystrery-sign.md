@@ -6,7 +6,7 @@ categories:
 - PS
 tags:
 - PS
-description: BOJ 20670 미스테리 싸인
+description: 기하학, 이분 탐색
 usemathjax: true
 ---
 

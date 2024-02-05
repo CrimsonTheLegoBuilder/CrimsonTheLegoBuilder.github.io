@@ -6,7 +6,7 @@ categories:
 - PS
 tags:
 - PS
-description: BOJ 3527 Jungle Outpost
+description: 기하학, 반평면 교집합, 이분 탐색
 usemathjax: true
 ---
 
