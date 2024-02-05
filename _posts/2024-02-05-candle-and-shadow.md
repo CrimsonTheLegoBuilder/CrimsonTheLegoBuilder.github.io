@@ -87,7 +87,9 @@ bool on_seg(const Pos& d1, const Pos& d2, const Pos& d3) {
 외적, 내적, 선분 위 점 판정 등을 구현합니다.
 여기까지는 기하 문제를 풀 때 필수적으로 구현해야하는 함수들입니다.
 
-이제 본론으로 들어갑니다. 쿼리는 10만회이고, 다각형들의 정점도 10만개입니다. 그걸 다 일일이 뒤적거리고 있으면 컴퓨터 터집니다. 여기서 생각해볼 점은 다각형은 두 개가 모두 볼록다각형이라는 것이며, 볼록다각형은 볼록성 때문에 이분 탐색이 가능하다는 것입니다. 또한 그림자가 될 다각형의 넓이는 가방끈 공식에 의해 `cross(O, H[i], H[i + 1])`의 누적합을 미리 \\(O(N)\\)에 전처리해두면 매 쿼리마다 \\(O(1)\\)에 구할 수 있습니다. 넓이를 누적합으로 구할 수 있는 건 그림을 그려보다가 어쩌다 생각난거고 그걸 가방끈 공식이라고 부르는 건 형한테서 들었습니다. ~~저도 사실 잘 모릅니다~~
+이제 본론으로 들어갑니다. 쿼리는 10만회이고, 다각형들의 정점도 10만개입니다. 그걸 다 일일이 뒤적거리고 있으면 컴퓨터 터집니다.
+여기서 생각해볼 점은 다각형은 두 개가 모두 볼록다각형이라는 것이며, 볼록다각형은 볼록성 때문에 이분 탐색이 가능하다는 것입니다. 또한 그림자가 될 다각형의 넓이는 가방끈 공식에 의해 `cross(O, H[i], H[i + 1])`의 누적합을 미리 \\(O(N)\\)에 전처리해두면 매 쿼리마다 \\(O(1)\\)에 구할 수 있습니다.
+넓이를 누적합으로 구할 수 있는 건 그림을 그려보다가 어쩌다 생각난거고 그걸 가방끈 공식이라고 부르는 건 형한테서 들었습니다. ~~저도 사실 잘 모릅니다~~
 
 ## 누적합
 
@@ -110,7 +112,7 @@ void get_area_memo(Pos H[], ll memo[], const int& sz) {
 ## 이분 탐색
 
 이 문제의 핵심이자 이제부터 열불나게 돌려야하는 이분 탐색입니다.
-우선 내부점 판정은 예전에 풀었던 [백준 20670 미스테리 싸인](https://www.acmicpc.net/problem/20670)의 함수를 사용합니다.
+우선 내부 점 판정은 예전에 풀었던 [백준 20670 미스테리 싸인](https://www.acmicpc.net/problem/20670)의 함수를 사용합니다.
 
 {% highlight cpp %}
 int inner_check_bi_search(Pos H[], const int& sz, const Pos& p) {
@@ -220,11 +222,15 @@ Info find_tangent_bi_search(Pos H[], const int& sz, const Pos& p) {
     }
 {% endhighlight %}
 
+다각형이 반으로 갈라지는 경우를 살펴봅시다.
+
 ![tan1](/assets/images/2024-02-05-candle/18190_1.jpg)
 
-먼저 내부 점 판정처럼 점 `p` 와 점 `H[0]`의 연장선이 만나는 점 `k`가 있는 선분을 찾아줍니다. 그리고 점 `p` 와 점 `H[0]`를 이은 직선을 기준으로 껍질을 상대적 위와 아래로 나눈 후 양 껍질에 대해 이분 탐색을 돌려 두 접점을 찾아줍니다. 이 때 점 `P`가 점 `k`와 점 `H[0]`를 이은 선분에 대해 어느 위치에 있는지에 따라 외적의 값이 반전되므로 빙향을 보고 정규화해줍니다.
+먼저 내부 점 판정처럼 점 `p` 와 점 `H[0]`의 연장선이 만나는 점 `k`가 있는 선분을 찾아줍니다. 그리고 점 `p` 와 점 `H[0]`를 이은 직선을 기준으로 껍질을 상대적 위와 아래로 나눈 후 양 껍질에 대해 이분 탐색을 돌려 두 접점을 찾아줍니다.
 
 ![tan2](/assets/images/2024-02-05-candle/18190_2.jpg)
+
+ 이 때 점 `P`가 점 `k`와 점 `H[0]`를 이은 선분에 대해 어느 위치에 있는지에 따라 외적의 값이 반전되므로 빙향을 보고 정규화해줍니다.
 
 {% highlight cpp %}
     else {
@@ -276,6 +282,8 @@ Info find_tangent_bi_search(Pos H[], const int& sz, const Pos& p) {
 
 `ccw`를 판정해 마지막까지 정규화를 해주고 두 접점의 인덱스를 반환합니다. 이로써 두 접점의 위치와 방향까지 찾았습니다.
 
+찾아낸 두 점으로 안에 있는 다각형이 가리는 그림자의 넓이를 구합니다.
+
 {% highlight cpp %}
 Info get_inner_area(Pos H[], ll memo[], const int& sz, const Pos& p) {
     Info tangent = find_tangent_bi_search(H, sz, p);
@@ -290,8 +298,7 @@ Info get_inner_area(Pos H[], ll memo[], const int& sz, const Pos& p) {
 
 ![area1](/assets/images/2024-02-05-candle/18190_10.jpg)
 
-누적합으로 구해뒀던 넓이들을 활용해 안쪽 다각형의 넓이를 구해줍니다.
-
+누적합으로 구해뒀던 넓이들을 활용하면 \\(O(1)\\)애 안쪽 다각형의 넓이를 구할 수 있습니다.
 다음은 바깥 껍질과 그림자의 접점을 찾아봅시다.
 
 {% highlight cpp %}
@@ -376,6 +383,8 @@ ld find_inx_get_area_bi_search(Pos H_in[], ll memo_in[], const int& sz_in, Pos H
 
 ![sh1](/assets/images/2024-02-05-candle/18190_5.jpg)
 
+가르고 난 후 두 접점 `vr`과 `vl` 이 어느 위치에 있는지도 파악해줍니다.
+
 {% highlight cpp %}
     Info info = get_inner_area(H_in, memo_in, sz_in, p);
     Pos vr = H_in[info.r], vl = H_in[info.l];
@@ -395,7 +404,8 @@ ld find_inx_get_area_bi_search(Pos H_in[], ll memo_in[], const int& sz_in, Pos H
 
 ![sh2](/assets/images/2024-02-05-candle/18190_6.jpg)
 
-위아래로 갈라진 두 껍질에 대해 각각 점이 어느 위치에 있는지를 파악해준 후, 갈라진 양쪽 다각형을 제외한 남은 삼각형 `P - S - E`에 점점이 있는 경우를 예외 처리 해주고 다른 두 다각형 중 하나에 있을 경우 어느 다각형에 들어있는지를 판정한 후 이분 탐색을 돌려줍니다. 이렇게 구한 오른쪽과 왼쪽 접점이 위치한 범위로부터 그림자의 경계 안에 위치한 점 2개를 찾고, 바깥 껍질의 변과 그림자의 경계가 만나는 점으로부터 만들어지는 양쪽 날개 (변수명을 날개라고 지었습니다)의 넓이도 바로 찾아줍니다. 양 날개의 넓이는 직선방정식으로 교점을 구하고 외적으로 구해도 되지만, 외적 간의 비례식으로 구하면 최소한의 실수 연산으로 구할 수 있습니다.
+위아래로 갈라진 두 껍질에 대해 각각 점이 어느 위치에 있는지를 파악해준 후, 갈라진 양쪽 다각형을 제외한 남은 삼각형 `P - S - E` 안에 점점이 있는 경우를 예외 처리 해주고 다른 두 다각형 중 하나에 있을 경우 어느 다각형에 들어있는지를 판정한 후 이분 탐색을 돌려줍니다. 
+이렇게 구한 오른쪽과 왼쪽 접점이 위치한 범위 `sr - er, sl - el`로부터 그림자의 경계 안에 위치한 점 2개를 찾고, 바깥 껍질의 변과 그림자의 경계가 만나는 점으로부터 만들어지는 양쪽 날개 (변수명을 날개라고 지었습니다)의 넓이도 바로 찾아줍니다. 양 날개의 넓이는 직선방정식으로 교점을 구하고 외적으로 구해도 되지만, 외적 간의 비례식으로 구하면 최소한의 실수 연산으로 구할 수 있습니다.
 그림자의 경계가 바깥 껍질의 접점과 같은 경우를 예외 처리 해줍니다.
 
 {% highlight cpp %}
@@ -466,7 +476,7 @@ Info get_inner_area(Pos H[], ll memo[], const int& sz, const Pos& p) {
 }
 {% endhighlight %}
 
-바깥 껍질에서 만나는 그림자의 넓이를 구하는 함수를 구현합니다. 두 그림자의 경계가 한 변에서 만나는 경우를 예외 처리 해줍니다.
+바깥 껍질에서 생기는 그림자의 넓이를 구하는 함수를 구현합니다. 두 그림자의 경계가 바깥 껍질의 한 변에서 만나는 경우를 예외 처리 해줍니다.
 
 {% highlight cpp %}   
     //get_shadow
@@ -726,8 +736,8 @@ ld find_inx_get_area_bi_search(Pos H_in[], ll memo_in[], const int& sz_in, Pos H
     //std::cout << "in R: " << info.r << " in L: " << info.l << " out R: " << ir << " out L: " << il << "\n";
     //std::cout << "wing R: " << wing_r << " wing L : " << wing_l << "\n";
     //std::cout << "wing R: " << trir * (ld)ar / (ar + br) << " wing L : " << tril * (ld)bl / (al + bl) << "\n";
-
-    //std::cout << "inner: " << info.area << "\n";    
+    //std::cout << "inner: " << info.area << "\n";
+     
     //get_shadow
     ld area{ 0 };
     if (sr == sl) {//if 2 intersections on the same segment
