@@ -6,7 +6,7 @@ categories:
 - PS
 tags:
 - PS
-description: BOJ 18190 촛불과 그림자
+description: 기하학, 누적합, 이분 탐색
 usemathjax: true
 ---
 
