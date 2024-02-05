@@ -10,8 +10,6 @@ description: BOJ 18190 촛불과 그림자
 usemathjax: true
 ---
 
-//# BOJ 18190 촛불과 그림자
-
 {% include rate.html image_path="/assets/images/rate/R5.svg" url="https://www.acmicpc.net/problem/18190" discription="18190 촛불과 그림자"%}
 
 요즘 고난이도 문제를 푸느라 블로그 관리에 꽤 소홀했습니다. 미치지 않고서야 푸는 사람이 없는 문제라 볼 사람이 있겠나 싶지만 그래도 풀었으니 기록은 해야죠.
