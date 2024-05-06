@@ -20,8 +20,8 @@ usemathjax: true
 
 사용 알고리즘 :
 - Geometry
-- memoization
-- binary search
+- Memoization
+- Binary search
 
 
 ## 기하학

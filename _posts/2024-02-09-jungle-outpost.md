@@ -20,8 +20,8 @@ usemathjax: true
 사용 알고리즘 :
 - Geometry
 - Convex hull
-- halfplane intersection
-- binary search
+- Halfplane intersection
+- Binary search
 
 ## 기하학
 
